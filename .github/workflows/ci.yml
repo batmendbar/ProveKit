@@ -112,14 +112,12 @@ jobs:
             noir-examples/poseidon-rounds/noir-proof-scheme.nps
             noir-examples/poseidon-rounds/noir-proof.np
 
-      - name: Keep alive log
+      - name: Run Gnark verifier
+        working-directory: gnark-whir
         run: |
           while true; do
             echo "Keep alive log: $(date)"
             echo "Memory usage: $(free -h || vm_stat || top -l 1 | grep PhysMem)"
             sleep 10
           done &
-
-      - name: Run Gnark verifier
-        working-directory: gnark-whir
         run: go run .
