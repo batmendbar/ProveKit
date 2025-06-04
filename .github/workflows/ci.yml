@@ -120,4 +120,5 @@ jobs:
             echo "Memory usage: $(free -h || vm_stat || top -l 1 | grep PhysMem)"
             sleep 10
           done &
-        run: go run .
+          
+          go run .
